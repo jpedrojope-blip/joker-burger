@@ -16,6 +16,9 @@ if (menuButton && mobileMenu) {
   }));
 }
 
+const initializeCatalog = async () => {
+await window.JokerStore?.hydratePublic?.();
+
 const menu = window.JokerStore?.getMenu?.() || window.JOKER_MENU;
 const catalog = document.querySelector('[data-menu-catalog]');
 const highlights = document.querySelector('[data-menu-highlights]');
@@ -453,3 +456,6 @@ if (menu && catalog && categoryNav) {
   setCategory(hashCategory && hashCategory !== 'cardapio' ? hashCategory : 'all');
   renderCart();
 }
+};
+
+initializeCatalog();

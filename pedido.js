@@ -62,6 +62,11 @@
       <a class="pedido-button pedido-button-primary" href="cardapio.html">Fazer outro pedido</a>`;
   };
 
-  render();
-  window.setInterval(render, 15000);
+  const refresh = async () => {
+    await store.hydrateOrder(orderId);
+    render();
+  };
+
+  refresh();
+  window.setInterval(refresh, 15000);
 })();

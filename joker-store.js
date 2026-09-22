@@ -22,6 +22,41 @@
     window.dispatchEvent(new CustomEvent('joker-store-change', { detail: { key } }));
   };
 
+  const requestJSON = async (url, options = {}) => {
+    const response = await fetch(url, {
+      credentials: 'include',
+      cache: 'no-store',
+      ...options,
+      headers: {
+        ...(options.headers || {}),
+        'Content-Type': 'application/json'
+      }
+    });
+    let result = null;
+    try {
+      result = await response.json();
+    } catch {
+      result = {};
+    }
+    if (!response.ok) {
+      const error = new Error(result.error || `Request failed with ${response.status}.`);
+      error.status = response.status;
+      throw error;
+    }
+    return result;
+  };
+
+  const applyRemoteState = state => {
+    if (state?.menu?.categories) write(MENU_KEY, clone(state.menu));
+    if (state?.settings) write(SETTINGS_KEY, { ...defaultSettings, ...state.settings });
+    return state;
+  };
+
+  const applyRemoteOrders = orders => {
+    if (Array.isArray(orders)) write(ORDERS_KEY, clone(orders));
+    return orders;
+  };
+
   const defaultSettings = {
     storeName: 'Joker Burger e Beer',
     open: true,
@@ -54,30 +89,72 @@
 
   const clearCart = () => saveCart([]);
 
-  const createOrder = payload => {
-    const orders = getOrders();
-    const order = {
-      id: `joker-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`.toUpperCase(),
-      createdAt: new Date().toISOString(),
-      status: 'received',
-      ...payload
-    };
-    saveOrders([order, ...orders]);
+  const createOrder = async payload => {
+    const order = await requestJSON('/api/orders', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+    applyRemoteOrders([order, ...getOrders().filter(item => item.id !== order.id)]);
     return order;
   };
 
-  const updateOrder = (orderId, updates) => {
-    const orders = getOrders().map(order => (
-      order.id === orderId ? { ...order, ...updates, updatedAt: new Date().toISOString() } : order
-    ));
-    saveOrders(orders);
-    return orders.find(order => order.id === orderId);
+  const updateOrder = async (orderId, updates) => {
+    const order = await requestJSON('/api/orders', {
+      method: 'PATCH',
+      body: JSON.stringify({ id: orderId, ...updates })
+    });
+    applyRemoteOrders(getOrders().map(item => item.id === orderId ? order : item));
+    return order;
   };
 
-  const deleteOrder = orderId => {
+  const deleteOrder = async orderId => {
+    await requestJSON('/api/orders', {
+      method: 'DELETE',
+      body: JSON.stringify({ id: orderId })
+    });
     const orders = getOrders().filter(order => order.id !== orderId);
-    saveOrders(orders);
+    applyRemoteOrders(orders);
     return orders;
+  };
+
+  const hydratePublic = async () => {
+    try {
+      return applyRemoteState(await requestJSON('/api/store-state'));
+    } catch {
+      return null;
+    }
+  };
+
+  const refreshOrders = async () => {
+    const result = await requestJSON('/api/orders');
+    return applyRemoteOrders(result.orders || []);
+  };
+
+  const hydrateOrder = async orderId => {
+    if (!orderId) return null;
+    try {
+      const order = await requestJSON(`/api/orders?id=${encodeURIComponent(orderId)}`);
+      applyRemoteOrders([order, ...getOrders().filter(item => item.id !== order.id)]);
+      return order;
+    } catch {
+      return getOrders().find(item => item.id === orderId) || null;
+    }
+  };
+
+  const hydrateAdmin = async () => {
+    const state = applyRemoteState(await requestJSON('/api/store-state'));
+    const orders = await refreshOrders();
+    if (!state.menu?.categories) await saveRemoteState({ menu: getMenu() });
+    if (!state.settings) await saveRemoteState({ settings: getSettings() });
+    return { state, orders };
+  };
+
+  const saveRemoteState = async state => {
+    const result = await requestJSON('/api/store-state', {
+      method: 'PATCH',
+      body: JSON.stringify(state)
+    });
+    return applyRemoteState(result);
   };
 
   const isAdminAuthenticated = async () => {
@@ -133,6 +210,11 @@
     createOrder,
     updateOrder,
     deleteOrder,
+    hydratePublic,
+    hydrateAdmin,
+    refreshOrders,
+    hydrateOrder,
+    saveRemoteState,
     isAdminAuthenticated,
     loginAdmin,
     logoutAdmin

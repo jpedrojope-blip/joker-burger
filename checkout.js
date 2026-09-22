@@ -4,19 +4,22 @@
   const store = window.JokerStore;
   if (!store) return;
 
-  const cart = store.getCart();
-  const settings = store.getSettings();
-  const form = document.querySelector('[data-checkout-form]');
-  const itemsElement = document.querySelector('[data-checkout-items]');
-  const emptyElement = document.querySelector('[data-checkout-empty]');
-  const deliveryFields = document.querySelector('[data-delivery-fields]');
-  const successElement = document.querySelector('[data-checkout-success]');
-  const storeStatus = document.querySelector('[data-store-status]');
-  const deliveryFeeElement = document.querySelector('[data-checkout-delivery]');
-  const subtotalElement = document.querySelector('[data-checkout-subtotal]');
-  const totalElement = document.querySelector('[data-checkout-total]');
-  const orderNumberElement = document.querySelector('[data-order-number]');
-  const orderLinkElement = document.querySelector('[data-order-link]');
+  const initializeCheckout = async () => {
+    await store.hydratePublic();
+
+    const cart = store.getCart();
+    const settings = store.getSettings();
+    const form = document.querySelector('[data-checkout-form]');
+    const itemsElement = document.querySelector('[data-checkout-items]');
+    const emptyElement = document.querySelector('[data-checkout-empty]');
+    const deliveryFields = document.querySelector('[data-delivery-fields]');
+    const successElement = document.querySelector('[data-checkout-success]');
+    const storeStatus = document.querySelector('[data-store-status]');
+    const deliveryFeeElement = document.querySelector('[data-checkout-delivery]');
+    const subtotalElement = document.querySelector('[data-checkout-subtotal]');
+    const totalElement = document.querySelector('[data-checkout-total]');
+    const orderNumberElement = document.querySelector('[data-order-number]');
+    const orderLinkElement = document.querySelector('[data-order-link]');
 
   const formatPrice = value => new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -77,34 +80,51 @@
 
   form?.addEventListener('change', updateTotals);
 
-  form?.addEventListener('submit', event => {
+  form?.addEventListener('submit', async event => {
     event.preventDefault();
     if (!settings.open || !cart.length || !form.reportValidity()) return;
 
     const data = new FormData(form);
     const delivery = getFulfillment() === 'delivery' ? Number(settings.deliveryFee || 0) : 0;
-    const order = store.createOrder({
-      customer: {
-        name: data.get('name'),
-        phone: data.get('phone')
-      },
-      fulfillment: getFulfillment(),
-      address: {
-        address: data.get('address'),
-        neighborhood: data.get('neighborhood'),
-        reference: data.get('reference')
-      },
-      payment: data.get('payment'),
-      change: data.get('change'),
-      note: data.get('note'),
-      items: cart,
-      subtotal,
-      deliveryFee: delivery,
-      total: subtotal + delivery
-    });
+    const originalLabel = submitButton?.textContent || 'Confirmar pedido';
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando pedido…';
+    }
 
-    store.clearCart();
-    showSuccess(order);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const order = await store.createOrder({
+        customer: {
+          name: data.get('name'),
+          phone: data.get('phone')
+        },
+        fulfillment: getFulfillment(),
+        address: {
+          address: data.get('address'),
+          neighborhood: data.get('neighborhood'),
+          reference: data.get('reference')
+        },
+        payment: data.get('payment'),
+        change: data.get('change'),
+        note: data.get('note'),
+        items: cart,
+        subtotal,
+        deliveryFee: delivery,
+        total: subtotal + delivery
+      });
+
+      store.clearCart();
+      showSuccess(order);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      }
+      window.alert('Não foi possível enviar o pedido agora. Verifique sua conexão e tente novamente.');
+    }
   });
+  };
+
+  initializeCheckout();
 })();

@@ -15,13 +15,21 @@
     logoutButton.hidden = !authenticated;
   };
 
-  const startDashboard = () => {
+  const startDashboard = async () => {
     if (dashboardStarted) return;
     dashboardStarted = true;
 
     if (new URLSearchParams(window.location.search).has('reset')) {
       store.saveOrders([]);
       store.clearCart();
+    }
+
+    const syncNote = document.querySelector('[data-admin-sync-note]');
+    try {
+      await store.hydrateAdmin();
+      if (syncNote) syncNote.textContent = 'Sincronizado online';
+    } catch {
+      if (syncNote) syncNote.textContent = 'Falha na sincronização online';
     }
 
     const menu = store.getMenu();
@@ -43,6 +51,27 @@
     const customerSearch = document.querySelector('[data-admin-customer-search]');
     const customersElement = document.querySelector('[data-admin-customers]');
     let creatingProduct = false;
+
+    const renderAll = () => {
+      renderMetrics();
+      renderFinance();
+      renderCustomers();
+      renderOrders();
+      renderProducts();
+    };
+
+    const refreshRemoteOrders = async () => {
+      try {
+        await store.refreshOrders();
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        renderMetrics();
+        renderFinance();
+        renderCustomers();
+        renderOrders();
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+      }
+    };
 
     const statusLabels = {
       received: 'Recebido',
@@ -256,11 +285,7 @@
     settingsForm.elements.deliveryCost.value = settings.deliveryCost;
     settingsForm.elements.estimatedTime.value = settings.estimatedTime;
     populateCategories();
-    renderMetrics();
-    renderFinance();
-    renderOrders();
-    renderCustomers();
-    renderProducts();
+    renderAll();
 
     categorySelect.addEventListener('change', () => {
       if (!creatingProduct) populateProducts();
@@ -270,12 +295,19 @@
     financePeriod.addEventListener('change', renderFinance);
     customerSearch.addEventListener('input', renderCustomers);
 
-    storeToggle.addEventListener('click', () => {
+    storeToggle.addEventListener('click', async () => {
       const nextOpen = !store.getSettings().open;
       store.saveSettings({ open: nextOpen });
       settingsForm.elements.open.checked = nextOpen;
       renderMetrics();
-      document.querySelector('[data-settings-feedback]').textContent = nextOpen ? 'Loja aberta para receber pedidos.' : 'Loja fechada para novos pedidos.';
+      try {
+        await store.saveRemoteState({ settings: store.getSettings() });
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        document.querySelector('[data-settings-feedback]').textContent = nextOpen ? 'Loja aberta para receber pedidos.' : 'Loja fechada para novos pedidos.';
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        document.querySelector('[data-settings-feedback]').textContent = 'Alteração local feita, mas não foi sincronizada.';
+      }
     });
 
     newProductButton.addEventListener('click', () => {
@@ -289,7 +321,7 @@
       showProductFeedback('');
     });
 
-    deleteProductButton.addEventListener('click', () => {
+    deleteProductButton.addEventListener('click', async () => {
       const found = findProduct();
       if (!found || !window.confirm(`Excluir “${found.item.name}” do cardápio?`)) return;
       const index = found.category.items.indexOf(found.item);
@@ -298,7 +330,14 @@
       setProductMode(false);
       populateProducts();
       renderProducts();
-      showProductFeedback('Produto excluído do catálogo local.');
+      try {
+        await store.saveRemoteState({ menu });
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        showProductFeedback('Produto excluído do catálogo.');
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        showProductFeedback('Produto excluído localmente, mas não sincronizado.');
+      }
     });
 
     productList.addEventListener('click', event => {
@@ -312,7 +351,7 @@
       productForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
-    productForm.addEventListener('submit', event => {
+    productForm.addEventListener('submit', async event => {
       event.preventDefault();
       const name = productForm.elements.name.value.trim();
       const price = productForm.elements.price.value.trim();
@@ -337,7 +376,14 @@
         loadProductForm();
         renderProducts();
         renderFinance();
-        showProductFeedback('Novo produto adicionado ao catálogo local.');
+        try {
+          await store.saveRemoteState({ menu });
+          if (syncNote) syncNote.textContent = 'Sincronizado online';
+          showProductFeedback('Novo produto adicionado ao catálogo.');
+        } catch {
+          if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+          showProductFeedback('Produto adicionado localmente, mas não sincronizado.');
+        }
         return;
       }
 
@@ -354,10 +400,17 @@
       productSelect.value = found.item.name;
       renderProducts();
       renderFinance();
-      showProductFeedback('Produto salvo no catálogo local.');
+      try {
+        await store.saveRemoteState({ menu });
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        showProductFeedback('Produto salvo no catálogo.');
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        showProductFeedback('Produto salvo localmente, mas não sincronizado.');
+      }
     });
 
-    settingsForm.addEventListener('submit', event => {
+    settingsForm.addEventListener('submit', async event => {
       event.preventDefault();
       store.saveSettings({
         open: settingsForm.elements.open.checked,
@@ -367,20 +420,33 @@
       });
       renderMetrics();
       renderFinance();
-      document.querySelector('[data-settings-feedback]').textContent = 'Configurações salvas.';
+      try {
+        await store.saveRemoteState({ settings: store.getSettings() });
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        document.querySelector('[data-settings-feedback]').textContent = 'Configurações salvas.';
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        document.querySelector('[data-settings-feedback]').textContent = 'Configurações salvas localmente, mas não sincronizadas.';
+      }
     });
 
-    ordersElement.addEventListener('change', event => {
+    ordersElement.addEventListener('change', async event => {
       const select = event.target.closest('[data-order-status]');
       if (!select) return;
-      store.updateOrder(select.dataset.orderId, { status: select.value });
-      renderMetrics();
-      renderFinance();
-      renderCustomers();
-      renderOrders();
+      try {
+        await store.updateOrder(select.dataset.orderId, { status: select.value });
+        if (syncNote) syncNote.textContent = 'Sincronizado online';
+        renderMetrics();
+        renderFinance();
+        renderCustomers();
+        renderOrders();
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        await refreshRemoteOrders();
+      }
     });
 
-    ordersElement.addEventListener('click', event => {
+    ordersElement.addEventListener('click', async event => {
       const button = event.target.closest('[data-order-action]');
       if (!button) return;
       const row = button.closest('.admin-order-row');
@@ -389,28 +455,34 @@
       const action = button.dataset.orderAction;
       if (!orderId) return;
 
-      if (action === 'approve') store.updateOrder(orderId, { status: 'approved', approvedAt: new Date().toISOString() });
-      if (action === 'reject') {
-        if (!window.confirm('Recusar este pedido?')) return;
-        store.updateOrder(orderId, { status: 'rejected', rejectedAt: new Date().toISOString() });
+      try {
+        if (action === 'approve') await store.updateOrder(orderId, { status: 'approved', approvedAt: new Date().toISOString() });
+        if (action === 'reject') {
+          if (!window.confirm('Recusar este pedido?')) return;
+          await store.updateOrder(orderId, { status: 'rejected', rejectedAt: new Date().toISOString() });
+        }
+        if (action === 'delete') {
+          if (!window.confirm('Excluir este pedido do painel?')) return;
+          await store.deleteOrder(orderId);
+        }
+      } catch {
+        if (syncNote) syncNote.textContent = 'Falha na sincronização online';
+        await refreshRemoteOrders();
+        return;
       }
-      if (action === 'delete') {
-        if (!window.confirm('Excluir este pedido do painel local?')) return;
-        store.deleteOrder(orderId);
-      }
+      if (syncNote) syncNote.textContent = 'Sincronizado online';
       renderMetrics();
       renderFinance();
       renderCustomers();
       renderOrders();
     });
 
-    document.querySelector('[data-admin-refresh]').addEventListener('click', () => {
-      renderMetrics();
-      renderFinance();
-      renderCustomers();
-      renderOrders();
+    document.querySelector('[data-admin-refresh]').addEventListener('click', async () => {
+      await refreshRemoteOrders();
       renderProducts();
     });
+
+    window.setInterval(refreshRemoteOrders, 8000);
   };
 
   loginForm.addEventListener('submit', async event => {

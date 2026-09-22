@@ -24,4 +24,6 @@ When deployed to Vercel, `vercel.json` exposes the friendly admin route `/admin`
 
 Admin authentication is handled by Vercel Functions with an HTTP-only, signed session cookie. Configure `ADMIN_USERNAME`, `ADMIN_PASSWORD` and `ADMIN_SESSION_SECRET` in Vercel using `.env.example` as a template. No admin password is stored in the public repository. Product costs and average delivery cost must be filled in for the profit estimate to be meaningful.
 
+Orders, store settings and catalog changes are synchronized through the Vercel-connected Upstash Redis database using `KV_REST_API_URL` and `KV_REST_API_TOKEN`. The Upstash Redis integration must be connected to the Vercel project before deploying the multi-device ordering flow. The browser `localStorage` remains only as a cart/cache fallback; it is no longer the source of truth for orders.
+
 The catalog, orders and CRM are still stored in browser `localStorage` in this MVP. That keeps the customer flow independent from Anota, but a real multi-device operation still needs a database-backed API for orders and catalog writes.
