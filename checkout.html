@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Finalize seu pedido Joker Burger e Beer." />
+    <title>Finalizar pedido — Joker Burger e Beer</title>
+    <link rel="icon" href="public/assets/f3f1f7150743c9c9.png" />
+    <link rel="stylesheet" href="styles.css?hero=layers-v30" />
+    <link rel="stylesheet" href="checkout.css?checkout=v1" />
+  </head>
+  <body class="checkout-page">
+    <header class="checkout-header">
+      <a class="checkout-brand" href="cardapio.html" aria-label="Voltar para o cardápio">
+        <img src="public/assets/joker/joker-logo-crop.png" alt="Joker Burger e Beer" />
+      </a>
+      <a class="checkout-back" href="cardapio.html">Voltar ao cardápio</a>
+    </header>
+
+    <main class="checkout-shell">
+      <div class="checkout-heading">
+        <span class="checkout-eyebrow">Joker Burger e Beer</span>
+        <h1>Feche sua jogada.</h1>
+        <p>Revise os itens, escolha como receber e envie o pedido direto para a Joker.</p>
+      </div>
+
+      <div class="checkout-layout">
+        <section class="checkout-card checkout-form-card" aria-labelledby="checkout-form-title">
+          <div class="checkout-card-heading">
+            <div>
+              <span class="checkout-eyebrow">Seu pedido</span>
+              <h2 id="checkout-form-title">Dados para finalizar</h2>
+            </div>
+            <span class="checkout-store-status" data-store-status>Loja aberta</span>
+          </div>
+
+          <div class="checkout-empty" data-checkout-empty hidden>
+            <h3>Seu carrinho está vazio.</h3>
+            <p>Escolha um lanche no cardápio para continuar.</p>
+            <a class="checkout-button checkout-button-dark" href="cardapio.html">Ver cardápio</a>
+          </div>
+
+          <form class="checkout-form" data-checkout-form>
+            <div class="checkout-fields-grid">
+              <label>
+                <span>Nome</span>
+                <input name="name" type="text" autocomplete="name" required placeholder="Seu nome" />
+              </label>
+              <label>
+                <span>WhatsApp</span>
+                <input name="phone" type="tel" autocomplete="tel" required placeholder="(21) 99999-9999" />
+              </label>
+            </div>
+
+            <fieldset class="checkout-choice-group">
+              <legend>Como você quer receber?</legend>
+              <div class="checkout-choice-grid">
+                <label class="checkout-choice">
+                  <input type="radio" name="fulfillment" value="delivery" checked />
+                  <span><strong>Entrega</strong><small>Receba no endereço</small></span>
+                </label>
+                <label class="checkout-choice">
+                  <input type="radio" name="fulfillment" value="pickup" />
+                  <span><strong>Retirada</strong><small>Japi da Penha</small></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="checkout-delivery-fields" data-delivery-fields>
+              <label>
+                <span>Endereço completo</span>
+                <input name="address" type="text" autocomplete="street-address" required placeholder="Rua, número e complemento" />
+              </label>
+              <div class="checkout-fields-grid checkout-fields-grid-small">
+                <label>
+                  <span>Bairro</span>
+                  <input name="neighborhood" type="text" autocomplete="address-level2" required placeholder="Seu bairro" />
+                </label>
+                <label>
+                  <span>Referência</span>
+                  <input name="reference" type="text" placeholder="Opcional" />
+                </label>
+              </div>
+            </div>
+
+            <div class="checkout-fields-grid">
+              <label>
+                <span>Pagamento</span>
+                <select name="payment" required>
+                  <option value="pix">Pix</option>
+                  <option value="card_delivery">Cartão na entrega</option>
+                  <option value="cash">Dinheiro</option>
+                </select>
+              </label>
+              <label>
+                <span>Troco para</span>
+                <input name="change" type="text" placeholder="Se pagar em dinheiro" />
+              </label>
+            </div>
+
+            <label>
+              <span>Observação do pedido</span>
+              <textarea name="note" rows="3" placeholder="Ex.: retirar cebola, chamar no portão..." ></textarea>
+            </label>
+
+            <button class="checkout-button checkout-button-primary" type="submit">Confirmar pedido</button>
+            <p class="checkout-form-note">Nesta versão, o pedido fica registrado no sistema local da Joker para acompanhamento no painel.</p>
+          </form>
+        </section>
+
+        <aside class="checkout-card checkout-summary-card" aria-labelledby="checkout-summary-title">
+          <div class="checkout-card-heading">
+            <div>
+              <span class="checkout-eyebrow">Resumo</span>
+              <h2 id="checkout-summary-title">Sua jogada</h2>
+            </div>
+            <a href="cardapio.html">Editar</a>
+          </div>
+          <div class="checkout-summary-items" data-checkout-items></div>
+          <div class="checkout-totals">
+            <div><span>Subtotal</span><strong data-checkout-subtotal>R$ 0,00</strong></div>
+            <div><span>Entrega</span><strong data-checkout-delivery>R$ 0,00</strong></div>
+            <div class="checkout-total-line"><span>Total</span><strong data-checkout-total>R$ 0,00</strong></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="checkout-success" data-checkout-success hidden aria-live="polite">
+        <span class="checkout-success-mark" aria-hidden="true">✓</span>
+        <span class="checkout-eyebrow">Pedido recebido</span>
+        <h2>Jogada confirmada.</h2>
+        <p>Seu número de pedido é <strong data-order-number></strong>. A Joker já registrou seus dados.</p>
+        <a class="checkout-track-link" data-order-link href="pedido.html">Acompanhar pedido</a>
+        <a class="checkout-button checkout-button-primary" href="cardapio.html">Voltar ao cardápio</a>
+      </section>
+    </main>
+
+    <script src="joker-store.js?system=v3"></script>
+    <script src="checkout.js?checkout=v1"></script>
+  </body>
+</html>

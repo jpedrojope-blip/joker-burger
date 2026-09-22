@@ -1,0 +1,456 @@
+{
+  "assets": [
+    {
+      "contentType": "image/svg+xml",
+      "id": "ac9172987b79332d",
+      "kind": "image",
+      "name": "logo-nomadico-nav.svg",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/ac9172987b79332d.svg",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/logo-nomadico-nav.svg"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "cd035d29b1d11112",
+      "kind": "image",
+      "name": "logo-nomadico-white.svg",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/cd035d29b1d11112.svg",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/logo-nomadico-white.svg"
+    },
+    {
+      "contentType": "video/mp4",
+      "id": "50c6467cb2615db3",
+      "kind": "video",
+      "name": "adventure-oaxaca-min.mp4",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/50c6467cb2615db3.mp4",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/09/adventure-oaxaca-min.mp4"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "8ec9a47fa668b03e",
+      "kind": "font",
+      "name": "fa-solid-900.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/8ec9a47fa668b03e.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fontawesome/webfonts/fa-solid-900.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "1920b4957055708f",
+      "kind": "font",
+      "name": "fa-brands-400.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/1920b4957055708f.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fontawesome/webfonts/fa-brands-400.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "885893ed54addaa7",
+      "kind": "font",
+      "name": "Roboto-Bold.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/885893ed54addaa7.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/Roboto-Bold.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "2a5acc45b6aa9015",
+      "kind": "font",
+      "name": "Roboto-Italic.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/2a5acc45b6aa9015.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/Roboto-Italic.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "fe6aebb1cc356107",
+      "kind": "font",
+      "name": "Roboto-Regular.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/fe6aebb1cc356107.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/Roboto-Regular.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "983aa9de8610a304",
+      "kind": "font",
+      "name": "Roboto-LightItalic.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/983aa9de8610a304.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/Roboto-LightItalic.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "51c999a57194f09f",
+      "kind": "font",
+      "name": "Roboto-Light.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/51c999a57194f09f.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/Roboto-Light.woff2"
+    },
+    {
+      "contentType": "font/woff2",
+      "id": "043c936c50aa1c6a",
+      "kind": "font",
+      "name": "StdsaicStd-ExtraBold.woff2",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/043c936c50aa1c6a.woff2",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/fonts/StdsaicStd-ExtraBold.woff2"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "af9c5e892f4191fe",
+      "kind": "image",
+      "name": "img_2842-scaled-1-760x1013.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/af9c5e892f4191fe.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/07/img_2842-scaled-1-760x1013.jpg.webp"
+    },
+    {
+      "contentType": "image/png",
+      "id": "f3f1f7150743c9c9",
+      "kind": "image",
+      "name": "cropped-short_logo_pp_black_white-32x32.png",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/f3f1f7150743c9c9.png",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/cropped-short_logo_pp_black_white-32x32.png"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "4e73ae120d5cdebc",
+      "kind": "image",
+      "name": "chatgpt-image-may-14-2026-04_17_01-pm-600x400.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/4e73ae120d5cdebc.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/05/chatgpt-image-may-14-2026-04_17_01-pm-600x400.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "f890ea83e6b0566d",
+      "kind": "image",
+      "name": "dusty-road-through-rugged-hills-600x400.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/f890ea83e6b0566d.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/dusty-road-through-rugged-hills-600x400.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "ba8401037de752fc",
+      "kind": "image",
+      "name": "honda-xr150l-on-sunlit-trail-600x400.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/ba8401037de752fc.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/12/honda-xr150l-on-sunlit-trail-600x400.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "a4a5ef973b3b9be7",
+      "kind": "image",
+      "name": "coyote1-600x1067.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/a4a5ef973b3b9be7.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/coyote1-600x1067.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "222eb3dbf48154ec",
+      "kind": "image",
+      "name": "1-600x800.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/222eb3dbf48154ec.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/02/1-600x800.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "87fdc32f774f8ced",
+      "kind": "image",
+      "name": "tinto-600x800.jpeg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/87fdc32f774f8ced.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/12/tinto-600x800.jpeg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "6fcb1186907ef10b",
+      "kind": "image",
+      "name": "frame-366.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/6fcb1186907ef10b.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/frame-366.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "c7b88051005800dd",
+      "kind": "image",
+      "name": "frame-368.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/c7b88051005800dd.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/frame-368.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "e0ae8ce575391b8a",
+      "kind": "image",
+      "name": "frame-390-3.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/e0ae8ce575391b8a.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/frame-390-3.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "bf9dfd5774fc70a7",
+      "kind": "image",
+      "name": "frame-370.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/bf9dfd5774fc70a7.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/frame-370.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "1a1cd6985dba1206",
+      "kind": "image",
+      "name": "ventanilla-1200x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/1a1cd6985dba1206.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/03/ventanilla-1200x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "16d7a23015617ae1",
+      "kind": "image",
+      "name": "dsc01959-720x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/16d7a23015617ae1.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/dsc01959-720x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "116030af21f8d2a6",
+      "kind": "image",
+      "name": "teaching-2-1200x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/116030af21f8d2a6.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/teaching-2-1200x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "64885454af6741de",
+      "kind": "image",
+      "name": "dsc02022-1200x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/64885454af6741de.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/dsc02022-1200x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "ecba15c4759adaf3",
+      "kind": "image",
+      "name": "385783299_851342273661033_8982463436544614879_n-1200x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/ecba15c4759adaf3.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/385783299_851342273661033_8982463436544614879_n-1200x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "62007488a0588f18",
+      "kind": "image",
+      "name": "img_8788-1200x700.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/62007488a0588f18.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/img_8788-1200x700.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "30d87db91ff8f36a",
+      "kind": "image",
+      "name": "photo-erick-250x250.jpeg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/30d87db91ff8f36a.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/photo-erick-250x250.jpeg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "175aef37865efd9c",
+      "kind": "image",
+      "name": "taco-san-dieg-250x250.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/175aef37865efd9c.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/02/taco-san-dieg-250x250.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "9533a373c3aff0af",
+      "kind": "image",
+      "name": "p1030286-250x250.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/9533a373c3aff0af.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/02/p1030286-250x250.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "220d79cbc1ff1887",
+      "kind": "image",
+      "name": "img_7601-250x250.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/220d79cbc1ff1887.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/01/img_7601-250x250.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "fe3b03095e55e023",
+      "kind": "image",
+      "name": "oliviareview-250x250.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/fe3b03095e55e023.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/oliviareview-250x250.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "1edf9ddaf529230b",
+      "kind": "image",
+      "name": "img_8608-250x250.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/1edf9ddaf529230b.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/img_8608-250x250.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "e63611b0143aafd9",
+      "kind": "image",
+      "name": "fullsizerender-3-250x250.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/e63611b0143aafd9.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/fullsizerender-3-250x250.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "fb14c3a8871358cb",
+      "kind": "image",
+      "name": "img_6547-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/fb14c3a8871358cb.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/08/img_6547-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "5202830e57237ce0",
+      "kind": "image",
+      "name": "taco5-450x600.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/5202830e57237ce0.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/09/taco5-450x600.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "c7bfd7ca02f8a270",
+      "kind": "image",
+      "name": "maliflac-cacao-pod-4469210-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/c7bfd7ca02f8a270.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/maliflac-cacao-pod-4469210-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "3ed25bc35e9ca77d",
+      "kind": "image",
+      "name": "alimentos-fotogenicos-dqohzdrwly4-unsplash-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/3ed25bc35e9ca77d.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/alimentos-fotogenicos-dqohzdrwly4-unsplash-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "dabcb7f6992bb99e",
+      "kind": "image",
+      "name": "dji_20250416124455_0025_d-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/dabcb7f6992bb99e.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/08/dji_20250416124455_0025_d-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "222e570b3123c798",
+      "kind": "image",
+      "name": "pexels-carlosdetrip-11564094-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/222e570b3123c798.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/pexels-carlosdetrip-11564094-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "8a5100ee63537eb9",
+      "kind": "image",
+      "name": "mole-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/8a5100ee63537eb9.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/mole-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "4dd7267d9c67b236",
+      "kind": "image",
+      "name": "sergi-ferrete-ho-zdmck4cc-unsplash-450x450.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/4dd7267d9c67b236.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2026/04/sergi-ferrete-ho-zdmck4cc-unsplash-450x450.jpg.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "c6dc340b71fad4e3",
+      "kind": "image",
+      "name": "taquito-450x450.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/c6dc340b71fad4e3.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/01/taquito-450x450.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "c8c1a93bbfa3abdf",
+      "kind": "image",
+      "name": "sierra-sur-450x450.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/c8c1a93bbfa3abdf.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/01/sierra-sur-450x450.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "f71dbd50d2fde715",
+      "kind": "image",
+      "name": "1-1-450x450.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/f71dbd50d2fde715.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/01/1-1-450x450.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "acd36f16a5bf6a98",
+      "kind": "image",
+      "name": "taco-san-dieg-450x563.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/acd36f16a5bf6a98.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/02/taco-san-dieg-450x563.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "c50c38ab6c214ee6",
+      "kind": "image",
+      "name": "plataforma-azules-450x450.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/c50c38ab6c214ee6.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/02/plataforma-azules-450x450.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "5553446c94174939",
+      "kind": "image",
+      "name": "1-450x563.png.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/5553446c94174939.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2025/02/1-450x563.png.webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "2ca7889c485c102c",
+      "kind": "image",
+      "name": "pexels-the-lazy-artist-gallery-1443657-copie-2-1920x1080.jpg.webp",
+      "path": "C:\\Users\\Pichau\\AppData\\Local\\Temp/browser-use/assets/26e1587f-f8ff-4d31-8ba6-8e3f7b03beac/2ca7889c485c102c.webp",
+      "url": "https://nomadico-pxm.com/wp-content/uploads/2024/06/pexels-the-lazy-artist-gallery-1443657-copie-2-1920x1080.jpg.webp"
+    }
+  ],
+  "failures": [
+    {
+      "contentType": null,
+      "id": "cae2a4a579d79ca3",
+      "name": "strock-reinsurrance.svg",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/strock-reinsurrance.svg"
+    },
+    {
+      "contentType": null,
+      "id": "3a33372e14efb460",
+      "name": "google-customer-reviews.svg",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/google-customer-reviews.svg"
+    },
+    {
+      "contentType": null,
+      "id": "3d1531d3cdb7cea7",
+      "name": "illu-map-dark.svg",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/illu-map-dark.svg"
+    },
+    {
+      "contentType": null,
+      "id": "374aceb970028f2b",
+      "name": "logo-nomadico-v.svg",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/logo-nomadico-v.svg"
+    },
+    {
+      "contentType": null,
+      "id": "b903359c2967e5cc",
+      "name": "footer-nomadico-large.webp",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/footer-nomadico-large.webp"
+    },
+    {
+      "contentType": null,
+      "id": "69e9f27d93061f76",
+      "name": "logo-nomadico-text.svg",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://nomadico-pxm.com/wp-content/themes/nomadico/assets/img/logo-nomadico-text.svg"
+    }
+  ]
+}

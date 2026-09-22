@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Painel Joker — Gestão</title>
+    <link rel="icon" href="public/assets/f3f1f7150743c9c9.png" />
+    <link rel="stylesheet" href="styles.css?hero=layers-v30" />
+    <link rel="stylesheet" href="admin.css?admin=v3" />
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <a class="admin-brand" href="cardapio.html" aria-label="Voltar ao cardápio">
+        <img src="public/assets/joker/joker-logo-crop.png" alt="Joker Burger e Beer" />
+      </a>
+      <div class="admin-header-actions">
+        <span class="admin-local-badge">Painel protegido</span>
+        <a href="cardapio.html">Ver cardápio</a>
+        <button class="admin-logout" type="button" data-admin-logout hidden>Sair</button>
+      </div>
+    </header>
+
+    <section class="admin-login" data-admin-login-screen hidden>
+      <div class="admin-login-card">
+        <span class="admin-eyebrow">Acesso restrito</span>
+        <h1>Entrar no painel.</h1>
+        <p>Use suas credenciais para cuidar dos pedidos e do cardápio da Joker.</p>
+        <form class="admin-form" data-admin-login-form>
+          <label><span>Usuário</span><input name="username" type="text" autocomplete="username" required /></label>
+          <label><span>Senha</span><input name="password" type="password" autocomplete="current-password" required /></label>
+          <button class="admin-button admin-button-primary" type="submit">Entrar no painel</button>
+          <p class="admin-feedback admin-login-feedback" data-admin-login-feedback role="status"></p>
+        </form>
+          <small class="admin-login-note">As credenciais são definidas somente no servidor.</small>
+      </div>
+    </section>
+
+    <main class="admin-shell" data-admin-dashboard hidden>
+      <div class="admin-heading">
+        <div>
+          <span class="admin-eyebrow">Central Joker</span>
+          <h1>Gestão da casa.</h1>
+          <p>Atualize o cardápio, acompanhe pedidos e ajuste as regras da loja.</p>
+        </div>
+        <span class="admin-sync-note">Dados salvos neste navegador</span>
+      </div>
+
+      <section class="admin-metrics" aria-label="Resumo da operação">
+        <article><span>Pedidos ativos</span><strong data-admin-active-orders>0</strong></article>
+        <article><span>Pedidos registrados</span><strong data-admin-total-orders>0</strong></article>
+        <article><span>Vendas registradas</span><strong data-admin-sales>R$ 0,00</strong></article>
+        <article class="admin-store-status-card">
+          <div class="admin-store-status-heading"><span>Status da loja</span><i class="admin-store-state-dot" aria-hidden="true"></i></div>
+          <strong data-admin-store-status>Aberta</strong>
+          <button class="admin-store-toggle" type="button" data-admin-store-toggle aria-pressed="true">Fechar loja</button>
+        </article>
+      </section>
+
+      <section class="admin-panel admin-finance-panel" aria-labelledby="admin-finance-title">
+        <div class="admin-panel-heading">
+          <div><span class="admin-eyebrow">Visão do negócio</span><h2 id="admin-finance-title">Financeiro</h2></div>
+          <label class="admin-period-control"><span>Período</span><select data-admin-finance-period aria-label="Período financeiro"><option value="today">Hoje</option><option value="week">Últimos 7 dias</option><option value="month">Últimos 30 dias</option><option value="all" selected>Todo o período</option></select></label>
+        </div>
+        <div class="admin-finance-grid">
+          <article><span>Faturamento</span><strong data-admin-revenue>R$ 0,00</strong><small>Pedidos não cancelados</small></article>
+          <article><span>Gastos estimados</span><strong data-admin-costs>R$ 0,00</strong><small>Custo dos produtos e entregas</small></article>
+          <article><span>Lucro bruto estimado</span><strong data-admin-profit>R$ 0,00</strong><small>Faturamento menos gastos</small></article>
+          <article><span>Ticket médio</span><strong data-admin-ticket>R$ 0,00</strong><small>Valor médio por pedido</small></article>
+        </div>
+        <p class="admin-data-note" data-admin-finance-note>Cadastre o custo dos produtos para calcular o lucro.</p>
+      </section>
+
+      <div class="admin-grid">
+        <section class="admin-panel admin-orders-panel" aria-labelledby="admin-orders-title">
+          <div class="admin-panel-heading">
+            <div><span class="admin-eyebrow">Operação</span><h2 id="admin-orders-title">Pedidos</h2></div>
+            <button class="admin-button admin-button-light" type="button" data-admin-refresh>Atualizar</button>
+          </div>
+          <div class="admin-orders" data-admin-orders></div>
+        </section>
+
+        <section class="admin-panel" aria-labelledby="admin-settings-title">
+          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Configuração</span><h2 id="admin-settings-title">Loja</h2></div></div>
+          <form class="admin-form" data-settings-form>
+            <label class="admin-switch-row"><span><strong>Receber pedidos</strong><small>Mostra a Joker como aberta no checkout.</small></span><input type="checkbox" name="open" /></label>
+            <div class="admin-fields-grid">
+              <label><span>Taxa de entrega cobrada</span><input name="deliveryFee" type="number" min="0" step="0.5" /></label>
+              <label><span>Custo médio da entrega</span><input name="deliveryCost" type="number" min="0" step="0.5" /></label>
+            </div>
+            <label><span>Tempo estimado</span><input name="estimatedTime" type="text" placeholder="35–50 min" /></label>
+            <button class="admin-button admin-button-primary" type="submit">Salvar configurações</button>
+            <p class="admin-feedback" data-settings-feedback role="status"></p>
+          </form>
+        </section>
+
+        <section class="admin-panel admin-products-panel" aria-labelledby="admin-products-title">
+          <div class="admin-panel-heading">
+            <div><span class="admin-eyebrow">Catálogo</span><h2 id="admin-products-title">Editar produtos</h2></div>
+            <div class="admin-product-heading-actions">
+              <button class="admin-button admin-button-light" type="button" data-admin-new-product>Novo produto</button>
+            </div>
+          </div>
+          <div class="admin-product-editor">
+            <form class="admin-form" data-product-form>
+              <div class="admin-fields-grid">
+                <label><span>Categoria</span><select name="category" data-admin-category></select></label>
+                <label><span>Produto</span><select name="product" data-admin-product></select></label>
+              </div>
+              <div class="admin-fields-grid">
+                <label><span>Nome</span><input name="name" type="text" required /></label>
+                <label><span>Preço</span><input name="price" type="text" required /></label>
+              </div>
+              <label><span>Custo do produto</span><input name="cost" type="text" placeholder="Ex.: R$ 12,00" /></label>
+              <label><span>Foto (URL ou caminho local)</span><input name="image" type="text" placeholder="public/assets/joker/produto.jpg" /></label>
+              <label><span>Descrição</span><textarea name="description" rows="3"></textarea></label>
+              <label class="admin-switch-row"><span><strong>Disponível no cardápio</strong><small>Desative temporariamente sem apagar o produto.</small></span><input name="available" type="checkbox" /></label>
+              <div class="admin-form-actions">
+                <button class="admin-button admin-button-primary" type="submit" data-product-submit>Salvar produto</button>
+                <button class="admin-button admin-button-light" type="button" data-admin-cancel-product hidden>Cancelar</button>
+                <button class="admin-button admin-button-danger" type="button" data-admin-delete-product>Excluir produto</button>
+              </div>
+              <p class="admin-feedback" data-product-feedback role="status"></p>
+            </form>
+          </div>
+          <div class="admin-product-list-toolbar">
+            <label class="admin-search-field" for="admin-product-search">
+              <span>Buscar no catálogo</span>
+              <input id="admin-product-search" class="admin-search" type="search" data-admin-search placeholder="Nome ou categoria" aria-label="Buscar produto por nome ou categoria" />
+            </label>
+            <small data-admin-search-summary>61 produtos</small>
+          </div>
+          <div class="admin-product-list" data-product-list></div>
+        </section>
+      </div>
+
+      <section class="admin-panel admin-crm-panel" aria-labelledby="admin-crm-title">
+        <div class="admin-panel-heading">
+          <div><span class="admin-eyebrow">Relacionamento</span><h2 id="admin-crm-title">CRM de clientes</h2></div>
+          <label class="admin-search-field admin-crm-search-field" for="admin-customer-search">
+            <span>Buscar cliente</span>
+            <input id="admin-customer-search" class="admin-search" type="search" data-admin-customer-search placeholder="Nome ou telefone" aria-label="Buscar cliente por nome ou telefone" />
+          </label>
+        </div>
+        <div class="admin-customer-list" data-admin-customers></div>
+      </section>
+    </main>
+
+    <script src="cardapio-data.js?catalog=v1"></script>
+    <script src="joker-store.js?system=v3"></script>
+    <script src="admin.js?admin=v4"></script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Cardápio Joker Burger e Beer — smash burgers, combos, porções, bebidas e molhos." />
+    <title>Cardápio — Joker Burger e Beer</title>
+    <link rel="icon" href="public/assets/f3f1f7150743c9c9.png" />
+    <link rel="stylesheet" href="styles.css?hero=layers-v30" />
+    <link rel="stylesheet" href="cardapio.css?catalog=v9" />
+  </head>
+  <body class="menu-page">
+    <header class="site-header menu-header" id="site-header">
+      <div class="promo">BURGER, CHOPE GELADO E MUITA ATITUDE • PEÇA PELO APP</div>
+      <nav class="nav-shell" aria-label="Navegação principal">
+        <div class="nav-group nav-left">
+          <a href="cardapio.html" aria-current="page">Cardápio</a>
+          <a href="index.html#experiences">A experiência</a>
+        </div>
+        <a class="brand" href="index.html#top" aria-label="Joker Burger e Beer início">
+          <span class="brand-wordmark"><img src="public/assets/joker/joker-logo-crop.png" alt="Joker Burger e Beer" /></span>
+        </a>
+        <div class="nav-group nav-right">
+          <a href="index.html#about">A casa</a>
+          <a href="index.html#journal">Novidades</a>
+          <a href="index.html#contact">Contato</a>
+          <a class="nav-book" href="checkout.html">Seu pedido</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
+          <span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <a href="cardapio.html" aria-current="page">Cardápio</a>
+        <a href="index.html#experiences">A experiência</a>
+        <a href="index.html#about">A casa</a>
+        <a href="index.html#journal">Novidades</a>
+        <a href="index.html#contact">Contato</a>
+        <a class="nav-book" href="checkout.html">Seu pedido</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="menu-hero" aria-labelledby="menu-title">
+        <div class="container menu-hero-content">
+          <span class="menu-kicker">Joker Burger e Beer · Japi da Penha</span>
+          <h1 id="menu-title">Escolha sua jogada.</h1>
+          <p>O cardápio oficial da Joker, com cada burger, combo, porção, bebida e molho. Escolha o seu e peça direto pelo app.</p>
+          <div class="menu-hero-badges" aria-label="Destaques do cardápio">
+            <span><strong>61</strong> opções</span>
+            <span>Fotos reais</span>
+            <span>Pedido personalizado</span>
+          </div>
+          <a class="button button-orange" href="#cardapio">Montar pedido</a>
+        </div>
+      </section>
+
+      <div class="menu-categories-wrap">
+        <nav class="menu-categories" aria-label="Categorias do cardápio" data-menu-categories></nav>
+      </div>
+
+      <div class="container menu-content" id="cardapio">
+        <div class="menu-browser-toolbar">
+          <div>
+            <span class="eyebrow">A jogada completa</span>
+            <p class="menu-results" data-menu-results aria-live="polite">Carregando cardápio...</p>
+          </div>
+          <label class="menu-search">
+            <span>Buscar no cardápio</span>
+            <input type="search" data-menu-search placeholder="Ex.: bacon, combo, batata..." autocomplete="off" />
+          </label>
+        </div>
+
+        <section class="menu-highlights" aria-labelledby="menu-highlights-title">
+          <div class="menu-highlights-head">
+            <h2 id="menu-highlights-title">Destaques</h2>
+            <span>Os mais pedidos da Joker</span>
+          </div>
+          <div class="menu-highlights-grid" data-menu-highlights></div>
+        </section>
+
+        <div class="menu-catalog" data-menu-catalog aria-live="polite"></div>
+
+        <aside class="menu-callout" aria-label="Informações da Joker">
+          <div>
+            <span class="menu-kicker">Mais que burger</span>
+            <h2>Fechou a jogada?</h2>
+            <p>Abra o app, escolha seu Joker e receba a resenha em casa. Ou passe na loja no Japi da Penha.</p>
+            <a class="button" href="checkout.html">Finalizar pedido</a>
+          </div>
+          <div class="menu-info">
+            <div><strong>Endereço</strong><span>Rua Comandante Vergueiro da Cruz, 584</span></div>
+            <div><strong>Horário</strong><span>Dom–Qui · 18h às 23h30</span></div>
+            <div><strong>Instagram</strong><span>@jokerburgerebeer</span></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="menu-footer">
+      <div class="container">
+        <div class="menu-footer-inner"><h2>Mais que burger.<br />É Joker.</h2><a class="button" href="index.html#top">Voltar para a home</a></div>
+        <div class="menu-footer-bottom">© 2026 Joker Burger e Beer · Rua Comandante Vergueiro da Cruz, 584 — Japi da Penha.</div>
+      </div>
+    </footer>
+
+    <a class="whatsapp" href="https://api.whatsapp.com/send?phone=555521965035071" target="_blank" rel="noreferrer" aria-label="Falar com a Joker no WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.5 3.5A10.5 10.5 0 0 1 20.3 16.8a10.4 10.4 0 0 1-11.5 3.1L3 20.7l.8-5.7A10.5 10.5 0 0 1 3.5 3.5Zm2.1 1.2a8.8 8.8 0 0 0-.2 9.6l.2.3-.5 3.6 3.7-.5.3.2a8.8 8.8 0 0 0 9.5-1.8 8.8 8.8 0 0 0 0-12.5 8.8 8.8 0 0 0-13 1.1Zm2.5 1.6c.2 0 .4 0 .6.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.3.6 1 1.6 2 2.2 1.1.6 1.7.8 2 .9.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.8.8c.3.1.5.3.5.5 0 .3-.1 1.1-.4 1.4-.3.4-1 .6-1.5.6-.4 0-1 0-1.8-.3-.7-.2-1.7-.6-2.9-1.5-1-.8-1.8-1.8-2.4-2.7-.6-.9-.8-1.7-.8-2.3 0-.6.2-1.3.6-1.7.2-.3.5-.4.7-.4Z"/></svg>
+    </a>
+    <button class="menu-cart-toggle" type="button" data-cart-open aria-controls="menu-cart" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 5h2l1.5 10.2a2 2 0 0 0 2 1.8h7.8a2 2 0 0 0 2-1.7L20.5 8H7M10 20.5h.01M17 20.5h.01"/></svg>
+      <span>Seu pedido</span>
+      <strong data-cart-count>0</strong>
+    </button>
+
+    <div class="menu-modal-backdrop" data-menu-modal hidden>
+      <section class="menu-modal" role="dialog" aria-modal="true" aria-labelledby="menu-modal-title">
+        <button class="menu-icon-button menu-modal-close" type="button" data-modal-close aria-label="Fechar detalhes do produto">×</button>
+        <div class="menu-modal-layout">
+          <div class="menu-modal-media"><picture><source data-modal-image-webp type="image/webp" /><img data-modal-image alt="" /></picture></div>
+          <div class="menu-modal-content">
+            <span class="menu-item-kicker" data-modal-kicker></span>
+            <h2 id="menu-modal-title" data-modal-title></h2>
+            <p data-modal-description></p>
+            <div class="menu-modal-options" data-modal-options></div>
+            <div class="menu-modal-total"><span>Total do item</span><strong data-modal-total>R$ 0,00</strong></div>
+            <button class="button button-orange menu-modal-add" type="button" data-modal-add>Adicionar ao pedido</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="menu-cart-backdrop" data-cart-overlay hidden>
+      <aside class="menu-cart-drawer" id="menu-cart" role="dialog" aria-modal="true" aria-labelledby="menu-cart-title">
+        <div class="menu-cart-header">
+          <div><span class="eyebrow">Joker Burger e Beer</span><h2 id="menu-cart-title">Seu pedido</h2></div>
+          <button class="menu-icon-button" type="button" data-cart-close aria-label="Fechar carrinho">×</button>
+        </div>
+        <div class="menu-cart-items" data-cart-items></div>
+        <div class="menu-cart-footer" data-cart-footer hidden>
+          <div class="menu-cart-total"><span>Subtotal</span><strong data-cart-total>R$ 0,00</strong></div>
+          <a class="button button-orange" href="checkout.html">Finalizar pedido</a>
+          <button class="menu-cart-app-link" type="button" data-cart-whatsapp>Enviar resumo pelo WhatsApp</button>
+        </div>
+      </aside>
+    </div>
+    <script src="cardapio-data.js?catalog=v1"></script>
+    <script src="joker-store.js?system=v3"></script>
+    <script src="cardapio.js?catalog=v4"></script>
+  </body>
+</html>
