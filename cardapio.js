@@ -44,6 +44,15 @@ const fallbackImage = 'public/assets/joker/joker-combo.jpg';
 const cartStorageKey = 'joker-menu-cart-v1';
 const whatsappPhone = '555521965035071';
 
+const handleImageError = event => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement) || !image.dataset.fallbackImage || image.dataset.fallbackAttempted) return;
+  image.dataset.fallbackAttempted = 'true';
+  image.src = image.dataset.fallbackImage;
+};
+
+document.addEventListener('error', handleImageError, true);
+
 if (menu && catalog && categoryNav) {
   let activeCategory = 'all';
   let searchTerm = '';
@@ -146,7 +155,7 @@ if (menu && catalog && categoryNav) {
           <span class="menu-highlight-media">
             <picture>
               <source srcset="${escapeHtml(`${image}.webp`)}" type="image/webp" />
-              <img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage}'" />
+              <img src="${escapeHtml(image)}" alt="" loading="lazy" decoding="async" data-fallback-image="${escapeHtml(fallbackImage)}" />
             </picture>
           </span>
           <span class="menu-highlight-body">
@@ -174,7 +183,7 @@ if (menu && catalog && categoryNav) {
         <div class="menu-item-media">
           <picture class="menu-product-picture">
             <source srcset="${escapeHtml(`${image}.webp`)}" type="image/webp" />
-            <img src="${escapeHtml(image)}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackImage}'" />
+            <img src="${escapeHtml(image)}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async" data-fallback-image="${escapeHtml(fallbackImage)}" />
           </picture>
           <span class="menu-image-hint">Ver detalhes</span>
         </div>
@@ -279,6 +288,8 @@ if (menu && catalog && categoryNav) {
     lastTrigger = trigger;
     const image = item.image || fallbackImage;
     modalImage.src = image;
+    modalImage.dataset.fallbackImage = fallbackImage;
+    modalImage.dataset.fallbackAttempted = '';
     modalImage.alt = item.name;
     modalImageWebp.srcset = `${image}.webp`;
     modalKicker.textContent = category.title;
@@ -311,7 +322,6 @@ if (menu && catalog && categoryNav) {
     if (!currentProduct) return;
     const options = getSelectedOptions();
     const unitPrice = parsePrice(currentProduct.item.price) + options.reduce((total, option) => total + option.price, 0);
-    const unitCost = parsePrice(currentProduct.item.cost) + options.reduce((total, option) => total + option.cost, 0);
     cart.push({
       id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
       name: currentProduct.item.name,
@@ -319,7 +329,6 @@ if (menu && catalog && categoryNav) {
       category: currentProduct.category.title,
       basePrice: parsePrice(currentProduct.item.price),
       unitPrice,
-      unitCost,
       options,
       quantity: 1
     });

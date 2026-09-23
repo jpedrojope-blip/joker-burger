@@ -4,3 +4,8 @@
 .vercel
 node_modules
 *.log
+nuclei/
+nuclei-templates/
+nuclei-runtime/
+nuclei-runtime.zip
+nuclei-scan.jsonl

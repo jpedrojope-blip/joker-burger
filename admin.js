@@ -180,8 +180,7 @@
         if (order.fulfillment === 'delivery') costs += parseMoney(currentSettings.deliveryCost);
         order.items.forEach(item => {
           const menuItem = findMenuItemForOrder(item);
-          const hasOrderCost = item.unitCost !== undefined && parseMoney(item.unitCost) > 0;
-          const unitCost = hasOrderCost ? parseMoney(item.unitCost) : parseMoney(menuItem?.cost);
+          const unitCost = parseMoney(menuItem?.cost);
           if (unitCost > 0) costs += unitCost * (Number(item.quantity) || 0);
           else missingCostLines += Number(item.quantity) || 0;
         });

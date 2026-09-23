@@ -26,6 +26,14 @@
     currency: 'BRL'
   }).format(value);
 
+  const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#039;',
+    '"': '&quot;'
+  }[character]));
+
   const subtotal = cart.reduce((total, line) => total + line.unitPrice * line.quantity, 0);
 
   const getFulfillment = () => form?.querySelector('input[name="fulfillment"]:checked')?.value || 'delivery';
@@ -40,10 +48,10 @@
 
     itemsElement.innerHTML = cart.map(line => `
       <article class="checkout-summary-item">
-        <img src="${line.image}" alt="" />
+        <img src="${escapeHtml(line.image)}" alt="" />
         <div>
-          <strong>${line.quantity}x ${line.name}</strong>
-          ${line.options?.length ? `<small>${line.options.map(option => option.name).join(', ')}</small>` : ''}
+          <strong>${escapeHtml(line.quantity)}x ${escapeHtml(line.name)}</strong>
+          ${line.options?.length ? `<small>${line.options.map(option => escapeHtml(option.name)).join(', ')}</small>` : ''}
           <span>${formatPrice(line.unitPrice * line.quantity)}</span>
         </div>
       </article>`).join('');

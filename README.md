@@ -7,10 +7,12 @@ The site uses the Joker palette, restaurant imagery, a local catalog, a first-pa
 Run locally:
 
 ```powershell
-python -m http.server 4173
+node dev-server.js
 ```
 
-Open `http://localhost:4173/`.
+Open `http://127.0.0.1:4173/`.
+
+The local server is for development only and must not be exposed to the public internet.
 
 Scope: visual layout, local source assets, responsive behavior, native horizontal rails, mobile menu, language menu, review carousel, and reduced-motion fallback. Booking, newsletter delivery, analytics, and WhatsApp destination remain demo links.
 

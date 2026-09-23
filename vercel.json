@@ -1,6 +1,29 @@
 {
   "redirects": [
-    { "source": "/admin/", "destination": "/admin", "permanent": false }
+    { "source": "/admin/", "destination": "/admin", "permanent": false },
+    { "source": "/README.md", "destination": "/__not-found", "permanent": false },
+    { "source": "/.gitignore", "destination": "/__not-found", "permanent": false },
+    { "source": "/.git", "destination": "/__not-found", "permanent": false },
+    { "source": "/.git/:path*", "destination": "/__not-found", "permanent": false },
+    { "source": "/.env", "destination": "/__not-found", "permanent": false },
+    { "source": "/.env.:path*", "destination": "/__not-found", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://client-assets.anota.ai https://legacy-assets.anota.ai data:; connect-src 'self'; font-src 'self' data:;" },
+        { "key": "Cross-Origin-Embedder-Policy", "value": "credentialless" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" }
+      ]
+    }
   ],
   "rewrites": [
     { "source": "/admin", "destination": "/admin.html" }

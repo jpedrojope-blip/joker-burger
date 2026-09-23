@@ -1,4 +1,4 @@
-window.JOKER_MENU = {
+const JOKER_MENU = {
     orderUrl: 'checkout.html',
   categories: [
     {
@@ -148,3 +148,6 @@ window.JOKER_MENU = {
     }
   ]
 };
+
+if (typeof window !== 'undefined') window.JOKER_MENU = JOKER_MENU;
+if (typeof module !== 'undefined') module.exports = JOKER_MENU;
